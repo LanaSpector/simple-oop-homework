@@ -9,18 +9,23 @@ public class TaskStream {
      * @param books - список книг
      * @return сумма по всем книгам
      */
+
     public static double task1(List<Book> books) {
-        return 0.0;
+        return books.stream().mapToDouble(Book::getPrice).sum();
     }
 
     /**
      * количество уникальных авторов среди всех книг.
+     * public class TaskStream {
+     * public static double task1(List<Book> books) {
+     * return books.stream().mapToDouble(Book::getPrice).sum();
+     * }
      *
      * @param books - список книг
      * @return количество уникальных авторов
      */
     public static long task2(List<Book> books) {
-        return 0;
+        return books.stream().map(Book::getAuthor).distinct().count();
     }
 
     /**
@@ -30,7 +35,8 @@ public class TaskStream {
      * @return ожидаемый мап
      */
     public static Map<String, List<String>> task3(List<Book> books) {
-        return Collections.emptyMap();
+        Map<String, List<String>> map = books.stream().collect(Collectors.toMap(Book::getTitle, Book::getReviews));
+        return map;
     }
 
     /**
@@ -41,7 +47,8 @@ public class TaskStream {
      * @return ожидаемый мап
      */
     public static Map<String, List<String>> task4(List<Book> books) {
-        return Collections.emptyMap();
+        Map<String, List<String>> map = books.stream().filter(v -> !v.getReviews().isEmpty()).collect(Collectors.toMap(Book::getTitle, Book::getReviews));
+        return map;
     }
 
     /**
@@ -51,7 +58,7 @@ public class TaskStream {
      * @return список отзывов
      */
     public static List<String> task5(List<Book> books) {
-        return Collections.emptyList();
+        return books.stream().flatMap(book -> book.getReviews().stream()).collect(Collectors.toList());
     }
 
     /**
@@ -61,7 +68,7 @@ public class TaskStream {
      * @return среднюю стоимость книги
      */
     public static double task6(List<Book> books) {
-        return 0.;
+        return books.stream().mapToDouble(Book::getPrice).average().getAsDouble();
     }
 
     /**
