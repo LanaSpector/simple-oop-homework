@@ -36,14 +36,14 @@ public class Second {
             return null;
         }
         String[] strings = string.split(" ");
-//        List<String> stringList = Arrays.asList(strings);
-//        Collections.reverse(stringList);
-//        return stringList.toString();
+        List<String> stringList = Arrays.asList(strings);
+        Collections.reverse(stringList);
+        return stringList.toString();
 
 //        return IntStream.range(0, strings.length)
 //                .mapToObj(i -> strings[strings.length - i - 1])
 //                .collect(Collectors.joining(" "));
-        return String.join(" ", Arrays.asList(string.split(" ")).reversed());
+//        return String.join(" ", Arrays.asList(string.split(" ")).reversed());
     }
 
     public static void printWordsReverseInColumn(String str) {

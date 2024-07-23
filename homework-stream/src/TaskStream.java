@@ -123,7 +123,7 @@ public class TaskStream {
      * @return Map с двумя ключами
      */
     public static Map<String, List<Book>> task10(List<Book> books) {
-        return Collections.emptyMap();
+        return books.stream().collect(Collectors.groupingBy(i -> i.getPrice() <= 50 ? "OK" : "Not Ok"));
     }
 
     /**
@@ -133,7 +133,8 @@ public class TaskStream {
      * @return список книг с интересными отзывами
      */
     public static List<Book> task11(List<Book> books) {
-        return Collections.emptyList();
+
+        return books.stream().filter(b -> b.getReviews().stream().anyMatch(r ->r.toLowerCase().contains("рекомендую"))).collect(Collectors.toList());
     }
 
     /**
@@ -143,6 +144,6 @@ public class TaskStream {
      * @return самая дешевая книга
      */
     public static Book task12(List<Book> books) throws IllegalArgumentException {
-        return null;
+        return books.stream().min(Comparator.comparing(Book::getPrice)).orElseThrow();
     }
 }

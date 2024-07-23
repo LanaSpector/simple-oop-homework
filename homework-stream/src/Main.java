@@ -73,21 +73,21 @@ public class Main {
         Assertion.assertEquals(Collections.singletonList(book2), booksActual);
 
 
-//        //Задание 10
-//        Map<String, List<Book>> oks = TaskStream.task10(books);
-//        //ожидаемый результат
-//        Map<String, List<Book>> expectedMap3 = new HashMap<>();
-//        expectedMap3.put("Not Ok", Collections.singletonList(book4));
-//        expectedMap3.put("OK", Arrays.asList(book1, book2, book3));
-//        //тест
-//        Assertion.assertEquals(expectedMap3, oks);
-//
-//        //Задание 11
-//        List<Book> recommended = TaskStream.task11(books);
-//        Assertion.assertEquals(Collections.singletonList(book2), recommended);
-//
-//        //Задание 12
-//        Book cheap = TaskStream.task12(books);
-//        Assertion.assertEquals(book2, cheap);
+        //Задание 10
+        Map<String, List<Book>> oks = TaskStream.task10(books);
+        //ожидаемый результат
+        Map<String, List<Book>> expectedMap3 = new HashMap<>();
+        expectedMap3.put("Not Ok", Collections.singletonList(book4));
+        expectedMap3.put("OK", Arrays.asList(book1, book2, book3));
+        //тест
+        Assertion.assertEquals(expectedMap3, oks);
+
+        //Задание 11
+        List<Book> recommended = TaskStream.task11(books);
+        Assertion.assertEquals(Collections.singletonList(book2), recommended);
+
+        //Задание 12
+        Book cheap = TaskStream.task12(books);
+        Assertion.assertEquals(book2, cheap);
     }
 }
